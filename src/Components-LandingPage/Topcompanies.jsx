@@ -1,21 +1,22 @@
-import React from 'react'
-import './Topcompanies.css'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Topcompanies.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import Apple from '../assets/Apple-Logo.png'
-import Wipro from '../assets/WIT.png'
-import CTS from '../assets/CTSH_BIG.png'
-import Amazon from '../assets/AMZN_BIG.png'
-import Google from '../assets/GOOG.png'
-import Infy from '../assets/INFY_BIG.png'
-import Tcs from '../assets/TCS.png'
-import META from '../assets/META_BIG.png'
-import starIcon from '../assets/Star_icon.png'
-import left from '../assets/left_arrow.png'
-import right from '../assets/right_arrow.png'
 
-/* Below Code is removed after backend integration*/
+import Apple from '../assets/Apple-Logo.png';
+import Wipro from '../assets/WIT.png';
+import CTS from '../assets/CTSH_BIG.png';
+import Amazon from '../assets/AMZN_BIG.png';
+import Google from '../assets/GOOG.png';
+import Infy from '../assets/INFY_BIG.png';
+import Tcs from '../assets/TCS.png';
+import META from '../assets/META_BIG.png';
+import starIcon from '../assets/Star_icon.png';
+import left from '../assets/left_arrow.png';
+import right from '../assets/right_arrow.png';
+
 const topCompaniesList = [
   {
     id: 1,
@@ -80,7 +81,7 @@ const topCompaniesList = [
     rating: 4.4,
     reviews: "22k+",
     desc: "Bring the world closer together",
-  }
+  },
 ];
 
 const CustomPrevArrow = ({ onClick }) => (
@@ -96,6 +97,8 @@ const CustomNextArrow = ({ onClick }) => (
 );
 
 export const Topcompanies = () => {
+  const navigate = useNavigate();
+
   const settings = {
     dots: false,
     infinite: true,
@@ -112,24 +115,36 @@ export const Topcompanies = () => {
   };
 
   return (
-      <section className="carousel-wrapper">
-        <h2 className="carousel-title">Top Companies Hiring Now</h2>
-        <Slider {...settings}>
-          {topCompaniesList.map((company)=>(
-            <div className="carousel-card" key={company.id}>
-              <img className="carousel-company-logo" src={company.logo} alt={company.name}/>
-              <div className="carousel-card-header">
-                <h3>{company.name}</h3>
-                <p className='carousel-company-rating'><span className="star"><img src={starIcon} /></span> {company.rating} | {company.reviews} reviews</p>
-              </div>
-              <p className="carousel-desc">{company.desc}</p>
-              <button className="carousel-view-jobs">View jobs</button>
+    <section className="carousel-wrapper">
+      <h2 className="carousel-title">Top Companies Hiring Now</h2>
+      <Slider {...settings}>
+        {topCompaniesList.map((company) => (
+          <div className="carousel-card" key={company.id}>
+            <img
+              className="carousel-company-logo"
+              src={company.logo}
+              alt={company.name}
+            />
+            <div className="carousel-card-header">
+              <h3>{company.name}</h3>
+              <p className="carousel-company-rating">
+                <span className="star"><img src={starIcon} alt="star" /></span>
+                {company.rating} | {company.reviews} reviews
+              </p>
             </div>
-          ))}
-        </Slider>
-        <div className="carousel-view-all-wrapper">
-          <button className="carousel-view-all">View All Companies</button>
-        </div>
-      </section>
-  )
-}
+            <p className="carousel-desc">{company.desc}</p>
+            <button
+              className="carousel-view-jobs"
+              onClick={() => navigate(`/company/${company.name.toLowerCase()}`)}
+            >
+              View jobs
+            </button>
+          </div>
+        ))}
+      </Slider>
+      <div className="carousel-view-all-wrapper">
+        <button className="carousel-view-all">View All Companies</button>
+      </div>
+    </section>
+  );
+};
