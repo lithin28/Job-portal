@@ -1,0 +1,82 @@
+.companies-container {
+  padding: 40px 80px;
+  background: #f7f9fb;
+  min-height: 100vh;
+}
+
+.companies-heading {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.company-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #e6e6e6;
+}
+
+.company-name {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.details p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #ffe8c6;
+  color: #ff8a00;
+  border-radius: 8px;
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.footer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.save-btn {
+  border: 1px solid #007bff;
+  background: white;
+  color: #007bff;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.apply-btn {
+  background: #007bff;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.logo-section img {
+  height: 55px;
+  width: auto;
+  margin-left: 20px;
+}

@@ -15,7 +15,7 @@ export const Newsletter = () => {
       <form
         className="newsletter-form"
         action={newsletterHandler}
-        // Handle it with the backend and also add method
+        
       >
         <input
           type="email"
